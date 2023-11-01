@@ -1,0 +1,9 @@
+.textarea {
+    font-family: consolas;
+    width: 100%;
+    height: 200px;
+}
+
+.textarea-filled {
+    border: 1px solid #ff0000;
+}
