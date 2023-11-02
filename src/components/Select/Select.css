@@ -1,0 +1,47 @@
+.select {
+    min-width: 150px; 
+}
+
+.select-panel {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-content: center;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 5px;
+    background-color: #00000065;
+    color: #dadada !important;
+}
+
+.select-text {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-content: stretch;
+    justify-content: space-between;
+    align-items: stretch;
+}
+
+.option-item {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-content: stretch;
+    justify-content: space-between;
+    align-items: stretch;
+}
+
+.option-icon {
+    height: 15px;
+    width: 15px;
+}
+
+.option-text {
+    font-size: 14px;
+}
+
+.option-subtext {
+    font-size: 10px;
+    font-style: italic;
+}

@@ -1,30 +1,39 @@
 <script>
+	import NavPanel from '../nav/navpanel.svelte';
+	import Select from '../components/Select/Select.svelte';
 	import { styles, styleClass } from '../stores/styleStore.js';
 	let selectedStyle = styles[0];
 </script>
 
-<slot />
+<NavPanel />
+
+<div class="page">
+	<slot />
+</div>
 
 <div class="style-panel">
-    <span>Style: </span>
-	<select id="styleSelect"
-		bind:value={selectedStyle}
-		on:change={() => {
+	<Select
+		id="styleSelect"
+		title="Style"
+		bind:selected={selectedStyle}
+		onChange={() => {
 			styleClass.set(selectedStyle);
-		}}>
-		{#each styles as style}
-			<option value={style}>{style}</option>
-		{/each}
-	</select>
+		}}
+		optionList={styles}
+	/>
 </div>
 
 <style>
 	@import '../style/default.css';
 	@import '../style/matrix.css';
 
-    .style-panel{
-        position: absolute;
-        top: 95%;
-        padding: 4px;
-    }
+	.style-panel {
+		position: fixed;
+		top: 95%;
+		padding: 4px;
+	}
+
+	.page {
+		padding-top: 25px;
+	}
 </style>

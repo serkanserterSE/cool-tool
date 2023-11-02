@@ -2,7 +2,7 @@
 	import { styleClass } from '../../stores/styleStore.js';
 	let _styleClass;
 	styleClass.subscribe((value) => {
-		_styleClass = value;
+		_styleClass = value.Value;
 	});
 
 	export let value;
