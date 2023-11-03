@@ -1,3 +1,8 @@
 .default {
     color: #000;
+    font-family: 'Courier New', Courier, monospace !important;
+}
+
+hr{
+    box-shadow: 0 3px #000;
 }

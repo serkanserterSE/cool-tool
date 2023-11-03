@@ -8,10 +8,14 @@
 	export let onclick;
 	export let type = 'button';
 	export let title;
-	export let style="";
+	export let style = '';
+	export let titleClass = '';
+	export let cleanClass = false;
 </script>
 
-<button {type} on:click={onclick} class="button {_styleClass}" {style}>{title}</button>
+<button {type} on:click={onclick} class="{cleanClass ? 'clean-button' : 'button-89'} {_styleClass}" {style}>
+	<span class={titleClass}>{title}</span>
+</button>
 
 <style>
 	@import './Button.css';

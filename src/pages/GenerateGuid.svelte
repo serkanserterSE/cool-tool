@@ -4,7 +4,7 @@
 	import NumberText from '../components/NumberText/NumberText.svelte';
 
 	let uuidList = [];
-	let uuidCount = 1;
+	let uuidCount = 5;
 	function GetUUID() {
 		let list = [];
 		for (let i = 1; i <= uuidCount; i++) {
@@ -16,6 +16,7 @@
 
 <div class="uuid-panel">
 	<div>
+		<span>Count</span>
 		<NumberText bind:value={uuidCount} textId="uuidCount" min="1" max="100" />
 		<Button
 			title="Generate GUID"
@@ -26,16 +27,22 @@
 		/>
 	</div>
 	{#each uuidList as uuid}
-		<div class="uuid-list">
-			<strong>{uuid}</strong>
+		<div class="uuid-list-item">
+			<Button
+				cleanClass={true}
+				title={uuid} 
+				onclick={() => {
+					console.log(uuid);
+					navigator.clipboard.writeText(uuid);
+				}}
+			/>
 		</div>
 	{/each}
 </div>
 
 <style>
 	.uuid-panel {
-		width: 100%;
-		border: 1px solid #000000db;
+		margin-bottom: 10px;
 	}
 
 	.uuid-panel > div {
@@ -43,15 +50,33 @@
 		flex-direction: row;
 		flex-wrap: nowrap;
 		align-content: center;
-		justify-content: flex-start;
+		justify-content: center;
 		align-items: center;
-        padding: 3px;
+		padding: 3px;
 	}
 
-	.uuid-list {
-		width: 100%;
-		border-bottom: 1px solid #000;
-		box-shadow: 1px 0 #000;
-        padding: 3px;
+	.uuid-list-item {
+		background-color: #e0e4eb;
+		box-shadow: 2px 2px #000;
+		margin: 5px;
+		padding: 5px;
+		align-self: stretch;
+		font-size: 28px;
+		cursor: pointer;
+	}
+
+	.uuid-list-item:hover {
+		background-color: #000;
+		color: #fff;
+		clip-path: polygon(
+			0 0,
+			100% 0,
+			100% calc(100% - var(--d)),
+			calc(100% - 3px) 100%,
+			3px 100%,
+			0 calc(100% - var(--d))
+		);
+		transform: perspective(1000px) rotateX(40deg);
+		transition: 0.1s, clip-path 0.1s 0.1s, transform 0.1s 0.1s;
 	}
 </style>

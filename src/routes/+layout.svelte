@@ -34,6 +34,6 @@
 	}
 
 	.page {
-		padding-top: 25px;
+		padding-top: 35px;
 	}
 </style>
