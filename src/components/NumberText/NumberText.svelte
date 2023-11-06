@@ -10,7 +10,7 @@
 	export let min = null;
 	export let max = null;
 	export let step = 1;
-
+	export let style = null;
 	export let onChange = null;
 </script>
 
@@ -23,6 +23,7 @@
 	{max}
 	{step}
 	on:change={onChange}
+	{style}
 />
 
 <style>

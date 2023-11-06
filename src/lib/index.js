@@ -1,3 +1,45 @@
+import { notificationDataList } from '../stores/notificationStore.js';
+import { notificationDirection } from '../stores/notificationStore.js';
+export function ShowNotification(title, message, direction = null) {
+	let list = [];
+	notificationDataList.subscribe((value) => {
+		list = value;
+	});
+	let id = GenerateUUID();
+	let order = list.length;
+	list.push({
+		index: order,
+		id: id,
+		show: false,
+		title: title,
+		message: message,
+		direction: direction !== null ? direction : notificationDirection.bottomRight
+	})
+	notificationDataList.set(list);
+
+	setTimeout(() => {
+		list.forEach((item) => {
+			if (item.id === id)
+				item.show = true
+		});
+		notificationDataList.set(list);
+	}, 10);
+
+	setTimeout(() => {
+		list.forEach((item) => {
+			if (item.id === id)
+				item.show = false
+		});
+		notificationDataList.set(list);
+	}, 3000);
+
+	setTimeout(() => {
+		list = list.filter(item => item.id !== id)
+		notificationDataList.set(list);
+	}, 4000);
+}
+
+
 export function GenerateUUID() {
 	return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'
 		.replace(/[xy]/g, function (c) {
@@ -30,7 +72,7 @@ export function RemoveText(plainText, removeText) {
 
 export function ReplaceAllText(plainText, sourceText, targetText) {
 	var regex = new RegExp('\\b' + sourceText + '\\b', "g");
-	let result = plainText.replaceAll(regex, '<span style="background-color:lightgreen; padding:0 4px 0 4px;">' + targetText + '</span>');
+	let result = plainText.replaceAll(regex, '<span style="background-color:green; padding:0 4px 0 4px;">' + targetText + '</span>');
 	return result;
 }
 
@@ -43,8 +85,8 @@ export function CompareText(sourceText, targetText) {
 	let resultTargetText = "";
 	for (let i = 0; i < minLength; i++) {
 		if (sourceText[i] != targetText[i]) {
-			resultSourceText += '<span style="background-color:lightyellow;">' + sourceText[i] + '</span>';
-			resultTargetText += '<span style="background-color:lightyellow;">' + targetText[i] + '</span>';
+			resultSourceText += '<span style="background-color:yellow;">' + sourceText[i] + '</span>';
+			resultTargetText += '<span style="background-color:yellow;">' + targetText[i] + '</span>';
 		}
 		else {
 			resultSourceText += sourceText[i];

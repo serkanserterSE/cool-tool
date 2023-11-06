@@ -1,9 +1,21 @@
 <script>
 	import NavPanel from '../nav/navpanel.svelte';
 	import Select from '../components/Select/Select.svelte';
+
 	import { styles, styleClass } from '../stores/styleStore.js';
 	let selectedStyle = styles[0];
+
+	import Notification from '../components/Notification/Notification.svelte';
+	import { notificationDataList } from '../stores/notificationStore.js';
+	let notificationList;
+	notificationDataList.subscribe((value) => {
+		notificationList = value;
+	});
 </script>
+
+{#each notificationList as notification}
+	<Notification {...notification} />
+{/each}
 
 <NavPanel />
 

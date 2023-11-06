@@ -1,0 +1,36 @@
+.notification {
+    position: absolute;
+
+}
+
+.notification-bottom {
+    left: 40%;
+}
+
+.notification-bottom-right {
+    left: 80%;
+} 
+
+.notification-bottom-left {
+    left: 20%;
+}
+
+.notification-top {
+    left: 40%;
+}
+
+.notification-top-right {
+    left: 20%;
+} 
+
+.notification-top-left {
+    left: 80%;
+}
+
+.notification-right {
+    left: 80%;
+}
+
+.notification-left {
+    left: 20%;
+}

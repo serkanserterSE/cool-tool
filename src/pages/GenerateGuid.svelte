@@ -1,7 +1,8 @@
 <script>
 	import Button from '../components/Button/Button.svelte';
-	import { GenerateUUID } from '$lib';
+	import { GenerateUUID, ShowNotification } from '$lib';
 	import NumberText from '../components/NumberText/NumberText.svelte';
+	import { notificationDirection } from '../stores/notificationStore.js';
 
 	let uuidList = [];
 	let uuidCount = 5;
@@ -12,6 +13,7 @@
 		}
 		uuidList = list;
 	}
+
 </script>
 
 <div class="uuid-panel">
@@ -30,10 +32,10 @@
 		<div class="uuid-list-item">
 			<Button
 				cleanClass={true}
-				title={uuid} 
+				title={uuid}
 				onclick={() => {
-					console.log(uuid);
 					navigator.clipboard.writeText(uuid);
+					ShowNotification('Copy To Clipboard', uuid, notificationDirection.bottom);
 				}}
 			/>
 		</div>
