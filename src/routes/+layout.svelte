@@ -23,6 +23,10 @@
 	<slot />
 </div>
 
+<div class="style-panel">
+	<a href="https://github.com/serkanserterSE/cool-tool" target="_blank" class="github-link"><span class="material-symbols-outlined"> code </span><span>github.com/serkanserterSE/cool-tool</span></a>
+</div>
+
 <!--<div class="style-panel">
 	<Select
 		id="styleSelect"
@@ -47,5 +51,14 @@
 
 	.page {
 		padding-top: 35px;
+	}
+
+	.github-link {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		align-content: center;
+		flex-wrap: nowrap;
+		flex-direction: row;
 	}
 </style>
