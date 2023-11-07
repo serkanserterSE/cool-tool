@@ -13,41 +13,54 @@
 		}
 		uuidList = list;
 	}
-
 </script>
 
-<div class="uuid-panel">
-	<div>
-		<span>Count</span>
-		<NumberText bind:value={uuidCount} textId="uuidCount" min="1" max="100" />
-		<Button
-			title="Generate GUID"
-			style="width:100%"
-			onclick={() => {
-				GetUUID();
-			}}
-		/>
-	</div>
-	{#each uuidList as uuid}
-		<div class="uuid-list-item">
+<div class="uuid-top">
+	<div class="uuid-panel">
+		<div class="uuid-conf">
+			<div class="uuid-field">
+				<span>Count</span>
+				<NumberText bind:value={uuidCount} textId="uuidCount" min="1" max="100" />
+			</div>
 			<Button
-				cleanClass={true}
-				title={uuid}
+				title="Generate GUID"
+				style="width:100%"
 				onclick={() => {
-					navigator.clipboard.writeText(uuid);
-					ShowNotification('Copy To Clipboard', uuid, notificationDirection.bottom);
+					GetUUID();
 				}}
 			/>
 		</div>
-	{/each}
+		{#each uuidList as uuid}
+			<div class="uuid-list-item">
+				<Button
+					cleanClass={true}
+					title={uuid}
+					onclick={() => {
+						navigator.clipboard.writeText(uuid);
+						ShowNotification('Copy To Clipboard', uuid, notificationDirection.bottom);
+					}}
+				/>
+			</div>
+		{/each}
+	</div>
 </div>
 
 <style>
-	.uuid-panel {
-		margin-bottom: 10px;
+	.uuid-top {
+		display: flex;
+		flex-direction: row;
+		flex-wrap: nowrap;
+		align-content: center;
+		justify-content: center;
+		align-items: center;
 	}
 
-	.uuid-panel > div {
+	.uuid-panel {
+		margin-bottom: 10px;
+		width: 60%;
+	}
+
+	.uuid-conf {
 		display: flex;
 		flex-direction: row;
 		flex-wrap: nowrap;
@@ -80,5 +93,15 @@
 		);
 		transform: perspective(1000px) rotateX(40deg);
 		transition: 0.1s, clip-path 0.1s 0.1s, transform 0.1s 0.1s;
+	}
+
+	.uuid-field {
+		display: flex;
+		flex-direction: row;
+		flex-wrap: nowrap;
+		align-content: center;
+		justify-content: flex-start;
+		align-items: center;
+		width: 100%;
 	}
 </style>

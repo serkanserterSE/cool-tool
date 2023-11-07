@@ -75,7 +75,7 @@
 
 	.string-panel {
 		box-shadow: 1px 1px #000;
-		width: 90%;
+		width: 700px;
 	}
 
 	.string-panel-item {

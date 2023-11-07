@@ -21,6 +21,7 @@
 					value = value.slice(0, maxLength);
 				}
 			}}
+			placeholder="Type something..."
 		/>
 	</div>
 	{#if value.length > maxLength}

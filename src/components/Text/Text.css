@@ -1,3 +1,11 @@
-.text{
+.text {
     min-width: 200px;
+    font-family: 'Courier New', Courier, monospace !important;
+    font-size: 14px;
+    box-shadow: 1px 1px #000;
+    border: none;
+    background-color: #fafafa;
+    font-size: 14px;
+    height: 30px;
+    margin-bottom: 5px;
 }

@@ -3,5 +3,28 @@
 </script>
 
 <PageTransition>
-	<h1>Home Page</h1>
+	<div class="center">
+		<span class="brand animate__animated animate__tada animate__infinite infinite">COOL-TOOL</span>
+	</div>
 </PageTransition>
+
+<style>
+	.center {
+		display: flex;
+		display: flex;
+		flex-wrap: nowrap;
+		align-content: center;
+		justify-content: center;
+		align-items: center;
+		padding-top: 20%;
+	}
+
+	.brand {
+		font-size: 64px;
+	}
+
+	.brand:after {
+		animation: animate__heartBeat;
+		animation-duration: 2s;
+	}
+</style>

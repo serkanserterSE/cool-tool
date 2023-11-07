@@ -50,6 +50,7 @@ export function GenerateUUID() {
 }
 
 export function ToFirstLetterUpper(value) {
+	value = ReplaceNewLine(value);
 	let result = [];
 	value.split(' ').forEach((element) => {
 		element = element.charAt(0).toUpperCase() + element.slice(1);
@@ -60,20 +61,36 @@ export function ToFirstLetterUpper(value) {
 
 export function SearchText(plainText, search) {
 	var regex = new RegExp('\\b' + search + '\\b', "g");
+	plainText = ReplaceNewLine(plainText);
 	let result = plainText.replaceAll(regex, '<span name="search" style="background-color:yellow; padding:0 4px 0 4px;">' + search + '</span>');
 	return result;
 }
 
 export function RemoveText(plainText, removeText) {
 	var regex = new RegExp('\\b' + removeText + '\\b', "g");
+	plainText = ReplaceNewLine(plainText);
 	let result = plainText.replaceAll(regex, '');
 	return result;
 }
 
 export function ReplaceAllText(plainText, sourceText, targetText) {
 	var regex = new RegExp('\\b' + sourceText + '\\b', "g");
+	plainText = ReplaceNewLine(plainText);
 	let result = plainText.replaceAll(regex, '<span style="background-color:green; padding:0 4px 0 4px;">' + targetText + '</span>');
 	return result;
+}
+
+function ReplaceNewLine(plainText) {
+	debugger
+	let resultText = "";
+	for (let i = 0; i < plainText.length; i++) {
+		let item = plainText[i];
+		resultText += item;
+		if (item == '\n') {
+			resultTargetText += '<br/>';
+		}
+	}
+	return resultText;
 }
 
 export function CompareText(sourceText, targetText) {
@@ -92,13 +109,33 @@ export function CompareText(sourceText, targetText) {
 			resultSourceText += sourceText[i];
 			resultTargetText += targetText[i];
 		}
+
+		if (sourceText[i] == '\n') {
+			resultSourceText += '<br/>';
+		}
+		if (targetText[i] == '\n') {
+			resultTargetText += '<br/>';
+		}
 	}
 
 	for (let i = minLength; i < sourceText.length; i++) {
-		resultSourceText += sourceText[i];
+		resultSourceText += '<span style="background-color:yellow;">' + sourceText[i] + '</span>';
+		if (sourceText[i] == '\n') {
+			resultSourceText += '<br/>';
+		}
+		if (targetText[i] == '\n') {
+			resultTargetText += '<br/>';
+		}
 	}
+
 	for (let i = minLength; i < targetText.length; i++) {
-		resultTargetText += targetText[i];
+		resultTargetText += '<span style="background-color:yellow;">' + targetText[i] + '</span>';
+		if (sourceText[i] == '\n') {
+			resultSourceText += '<br/>';
+		}
+		if (targetText[i] == '\n') {
+			resultTargetText += '<br/>';
+		}
 	}
 
 	return {
@@ -106,6 +143,8 @@ export function CompareText(sourceText, targetText) {
 		ResultTargetText: resultTargetText
 	};
 }
+
+
 export const TypeOfRandomString = {
 	All: { Key: 0, Value: 'All Characters' },
 	WithoutAsterix: { Key: 1, Value: 'Without Asterix Characters' },

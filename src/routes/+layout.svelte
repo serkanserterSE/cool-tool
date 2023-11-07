@@ -23,7 +23,7 @@
 	<slot />
 </div>
 
-<div class="style-panel">
+<!--<div class="style-panel">
 	<Select
 		id="styleSelect"
 		title="Style"
@@ -33,7 +33,7 @@
 		}}
 		optionList={styles}
 	/>
-</div>
+</div>-->
 
 <style>
 	@import '../style/default.css';
