@@ -4,7 +4,7 @@
 
 <PageTransition>
 	<div class="center">
-		<span class="brand animate__animated animate__tada animate__infinite infinite">COOL-TOOL</span>
+		<span class="brand animate__animated animate__backInDown">COOL-TOOL</span>
 	</div>
 </PageTransition>
 
@@ -20,7 +20,7 @@
 	}
 
 	.brand {
-		font-size: 64px;
+		font-size: 128px;
 	}
 
 	.brand:after {
