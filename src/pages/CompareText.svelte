@@ -43,7 +43,7 @@
 	<div style="box-shadow: 0 1px #000;min-height: 20px;width:100%;margin-bottom:10px;" />
 	<div class="compare-text">
 		<div>
-			<span>Reusult Source Text</span>
+			<span>Result Source Text</span>
 			<div class="resultText">{@html resultSourceText}</div>
 		</div>
 		<div class="compare-text-middle" />
