@@ -8,6 +8,7 @@
 	export let value = '';
 	export let textAreaId;
 	export let maxLength = 2000;
+	export let placeholder="Type something..."
 </script>
 
 <div>
@@ -21,7 +22,7 @@
 					value = value.slice(0, maxLength);
 				}
 			}}
-			placeholder="Type something..."
+			{placeholder}
 		/>
 	</div>
 	{#if value.length > maxLength}
