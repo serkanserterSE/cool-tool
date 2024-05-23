@@ -24,7 +24,11 @@
 </div>
 
 <div class="style-panel">
-	<a href="https://github.com/serkanserterSE/cool-tool" target="_blank" class="github-link"><span class="material-symbols-outlined"> code </span><span>github.com/serkanserterSE/cool-tool</span></a>
+	<a href="https://github.com/serkanserterSE/cool-tool" target="_blank" class="github-link"
+		><span class="material-symbols-outlined"> code </span><span
+			>github.com/serkanserterSE/cool-tool</span
+		></a
+	>
 </div>
 
 <!--<div class="style-panel">
@@ -42,6 +46,7 @@
 <style>
 	@import '../style/default.css';
 	@import '../style/matrix.css';
+	@import '../style/animate.min..css';
 
 	.style-panel {
 		position: fixed;
